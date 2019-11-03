@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import os
 
 
-BUFFER_LENGTH = 3000.0
+BUFFER_LENGTH = 4000.0
 MS_IN_S = 1000.0
 KB_IN_MB = 1000.0
 TRANS_BL = str(int(BUFFER_LENGTH/MS_IN_S))
@@ -45,10 +45,10 @@ def qoe_cdf_plot(qoe_records):
 	qoe_values = range(int(np.ceil(qoe_lower)), int(np.ceil(qoe_upper)), 2)
 	X_GAP = 100
 	cdf = []
-	print qoe_lower
-	print qoe_upper
+	# print qoe_lower
+	# print qoe_upper
 	p = plt.figure(figsize=(7,5.5))
-	print len(qoe_records)
+	# print len(qoe_records)
 	for i in range(len(SHOW_LIST)):
 		curr_name = SHOW_LIST[i]
 		# if curr_name == 'MPCs':
@@ -94,8 +94,8 @@ def freeze_cdf_plot(freeze_records):
 	freeze_upper = np.amax(freeze_records)
 	freeze_values = range(int(np.ceil(freeze_lower)), int(np.ceil(freeze_upper)), 5)
 	cdf = []
-	print freeze_lower
-	print freeze_upper
+	# print freeze_lower
+	# print freeze_upper
 	X_GAP = 1000
 	p = plt.figure(figsize=(7,5.5))
 	for i in range(len(SHOW_LIST)):
@@ -134,8 +134,8 @@ def bit_rate_cdf_plot(bit_rate_records):
 	bit_rate_upper = np.amax(bit_rate_records)
 	bit_rate_values = range(int(np.ceil(bit_rate_lower)), int(np.ceil(bit_rate_upper)), 1)
 	cdf = []
-	print bit_rate_lower
-	print bit_rate_upper
+	# print bit_rate_lower
+	# print bit_rate_upper
 	X_GAP = 2000
 	p = plt.figure(figsize=(7,5.5))
 	for i in range(len(SHOW_LIST)):
@@ -173,8 +173,8 @@ def change_cdf_plot(change_records):
 	change_upper = np.minimum(np.amax(change_records), 800.0)
 	change_values = np.arange(int(np.ceil(change_lower)), int(np.ceil(change_upper)), 2)
 	cdf = []
-	print change_lower
-	print change_upper
+	# print change_lower
+	# print change_upper
 	X_GAP = 200
 	p = plt.figure(figsize=(7,5.5))
 	for i in range(len(SHOW_LIST)):
@@ -216,13 +216,13 @@ def change_cdf_plot(change_records):
 	return p
 
 def latency_cdf_plot(latency_records):
-	print(latency_records)
+	# print(latency_records)
 	latency_lower = np.amin(latency_records)
 	latency_upper = np.amax(latency_records)
 	latency_values = range(int(np.ceil(latency_lower)), int(np.ceil(latency_upper)), 1)
 	cdf = []
-	print latency_lower
-	print latency_upper
+	# print latency_lower
+	# print latency_upper
 	X_GAP = 1000.0
 	p = plt.figure(figsize=(7,5.5))
 	for i in range(len(SHOW_LIST)):
@@ -275,7 +275,7 @@ def main():
 	for name in SHOW_LIST:
 		for data in results:
 			if name in data and TRANS_BL in data:
-				print name
+				# print name
 				file_info = []
 				qoe_record = []
 				bit_rate_record = []
@@ -284,7 +284,7 @@ def main():
 				latency_record = []
 				name_record = []
 				file_path = ALL_RESULTS_DIR + data
-				with open(file_path, 'rb') as f:
+				with open(file_path, 'r') as f:
 					for line in f:
 						parse = line.strip('\n')
 						parse = parse.split('\t')
