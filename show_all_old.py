@@ -3,14 +3,14 @@ import matplotlib.pyplot as plt
 import os
 
 
-BUFFER_LENGTH = 2000.0
+BUFFER_LENGTH = 4000.0
 MS_IN_S = 1000.0
 KB_IN_MB = 1000.0
 TRANS_BL = str(int(BUFFER_LENGTH/MS_IN_S))
 ALL_RESULTS_DIR = './all_results_old/'
 SAVING_DIR = './metrics_old/'
-# SHOW_LIST = ['naive', 'PI', 'MPCs' , 'MPC\'', 'RLs', 'RL\'', 'MPCl', 'RL_speed']
-SHOW_LIST = ['RL\'', 'RL_speed']
+SHOW_LIST = ['naive', 'PI', 'MPCs' , 'MPC_iLQR_SEG_', 'MPC\'' , 'RLs', 'RL\'', 'MPCl', 'RL_speed']
+# SHOW_LIST = ['RL\'', 'RL_speed']
 
 palette = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c',
                   '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5',
@@ -29,6 +29,8 @@ def name_change(curr_name):
 		return r"PI"
 	elif curr_name == "MPCs":
 		return r"MPC$^{(s)}$"
+	elif curr_name == "MPC_iLQR_SEG_":
+		return r"MPC$^{(i)}$"
 	elif curr_name == "MPC\'":
 		return r"MPC$^{(c)}$"
 	elif curr_name == "RLs":
