@@ -9,8 +9,9 @@ KB_IN_MB = 1000.0
 TRANS_BL = str(int(BUFFER_LENGTH/MS_IN_S))
 ALL_RESULTS_DIR = './all_results_old/'
 SAVING_DIR = './metrics_old/'
-SHOW_LIST = ['naive', 'PI', 'MPCs' , 'MPC_iLQR_SEG_', 'MPC\'' , 'RLs', 'RL\'', 'MPCl', 'RL_speed']
+# SHOW_LIST = ['naive', 'PI', 'MPCs' , 'MPC_iLQR_SEG_', 'MPC\'' , 'MPC_iLQR_CHUNK_','RLs', 'RL\'', 'MPCl', 'RL_speed']
 # SHOW_LIST = ['RL\'', 'RL_speed']
+SHOW_LIST = ['naive', 'PI', 'MPCs' , 'MPC_iLQR_SEG_', 'MPC\'' , 'MPC_iLQR_CHUNK_','RLs', 'RL\'']
 
 palette = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c',
                   '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5',
@@ -30,17 +31,19 @@ def name_change(curr_name):
 	elif curr_name == "MPCs":
 		return r"MPC$^{(s)}$"
 	elif curr_name == "MPC_iLQR_SEG_":
-		return r"MPC$^{(i)}$"
+		return r"iMPC$^{(s)}$"
 	elif curr_name == "MPC\'":
 		return r"MPC$^{(c)}$"
+	elif curr_name == "MPC_iLQR_CHUNK_":
+		return r"iMPC$^{(c)}$"
 	elif curr_name == "RLs":
 		return r"DRL$^{(s)}$"
 	elif curr_name == "RL\'":
 		return r"DRL$^{(c)}$"
-	elif curr_name == "MPCl":
-		return r"MPC$^{(p)}$"
-	elif curr_name == "RL_speed":
-		return r"RL$^{(p)}$"
+	# elif curr_name == "MPCl":
+	# 	return r"MPC$^{(p)}$"
+	# elif curr_name == "RL_speed":
+	# 	return r"RL$^{(p)}$"
 
 def qoe_cdf_plot(qoe_records):
 	qoe_lower = np.amin(qoe_records)
