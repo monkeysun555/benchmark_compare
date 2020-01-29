@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import os
 
 
-BUFFER_LENGTH = 3000.0
+BUFFER_LENGTH = 2000.0
 MS_IN_S = 1000.0
 KB_IN_MB = 1000.0
 TRANS_BL = str(int(BUFFER_LENGTH/MS_IN_S))
