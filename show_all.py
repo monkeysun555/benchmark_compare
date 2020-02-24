@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-BUFFER_LENGTH = 4000.0
+BUFFER_LENGTH = 3000.0
 MS_IN_S = 1000.0
 KB_IN_MB = 1000.0
 TRANS_BL = str(int(BUFFER_LENGTH/MS_IN_S))
@@ -82,7 +82,7 @@ def qoe_cdf_plot(qoe_records):
 	if BUFFER_LENGTH == 2000.0:
 		plt.axis([int(qoe_lower/X_GAP)*X_GAP+X_GAP, int(qoe_upper/X_GAP)*X_GAP, 0.001, 1])
 	elif BUFFER_LENGTH == 3000.0:
-		plt.axis([int(qoe_lower/X_GAP)*X_GAP+X_GAP, int(qoe_upper/X_GAP)*X_GAP+X_GAP, 0.001, 1])
+		plt.axis([int(qoe_lower/X_GAP)*X_GAP, int(qoe_upper/X_GAP)*X_GAP+X_GAP, 0.001, 1])
 	else:
 		plt.axis([int(qoe_lower/X_GAP)*X_GAP, int(qoe_upper/X_GAP)*X_GAP+ X_GAP, 0.001, 1])
 	p.set_tight_layout(True)
