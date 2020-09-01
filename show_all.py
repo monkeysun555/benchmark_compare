@@ -2,14 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-BUFFER_LENGTH = 3000.0
+BUFFER_LENGTH = 4000.0
 MS_IN_S = 1000.0
 KB_IN_MB = 1000.0
 TRANS_BL = str(int(BUFFER_LENGTH/MS_IN_S))
 ALL_RESULTS_DIR = './all_results/'
 SAVING_DIR = './metrics/'
 # SHOW_LIST = ['naive', 'PI', 'MPCs' , 'MPC\'', 'RLs', 'RL\'', 'MPC_l']
-SHOW_LIST = ['naive', 'PI', 'MPC_iLQR_SEG_', 'MPC_iLQR_CHUNK_', 'MPCs', 'MPC\'', 'RLs', 'RL\'']
+SHOW_LIST = ['naive', 'PI', 'MPCs', 'MPC\'', 'MPC_iLQR_SEG_', 'MPC_iLQR_CHUNK_', 'RLs', 'RL\'']
 
 palette = ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffbb78', '#2ca02c',
                   '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5',
@@ -32,9 +32,9 @@ def name_change(curr_name):
 		return r"iMPC$^{(c)}$", new_palette[2], '-'
 
 	elif curr_name == "MPCs":
-		return r"MPC$^{(s)}$", new_palette[3], '--'
+		return r"eMPC$^{(s)}$", new_palette[3], '--'
 	elif curr_name == "MPC\'":
-		return r"MPC$^{(c)}$", new_palette[3], '-'
+		return r"eMPC$^{(c)}$", new_palette[3], '-'
 	
 	elif curr_name == "RLs":
 		return r"DRL$^{(s)}$", new_palette[7], '--'
